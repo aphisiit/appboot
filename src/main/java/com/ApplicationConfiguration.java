@@ -2,6 +2,7 @@ package com;
 
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
+import org.springframework.boot.context.embedded.undertow.UndertowEmbeddedServletContainerFactory;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -21,6 +22,14 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
         configurer.favorPathExtension(true).ignoreAcceptHeader(true).useJaf(false).mediaType("json", MediaType.APPLICATION_JSON);
     }
 
+//    @Override
+//    public void addCorsMappings(CorsRegistry registry) {
+//        registry.addMapping("/employees/**")
+//                .allowedOrigins("http://127.0.0.1:8887")
+//                .allowedMethods("GET","POST")
+//                .allowCredentials(false).maxAge(3600);
+//    }
+
     @Bean
     public FilterRegistrationBean filterRegistrationBean(){
         FilterRegistrationBean registrationBean = new FilterRegistrationBean();
@@ -30,4 +39,11 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
         registrationBean.setFilter(characterEncodingFilter);
         return  registrationBean;
     }
+
+//    @Bean
+//    UndertowEmbeddedServletContainerFactory embeddedServletContainerFactory(){
+//        UndertowEmbeddedServletContainerFactory factory = new UndertowEmbeddedServletContainerFactory();
+//        factory.setPort(8080);
+//        factory.seth
+//    }
 }
