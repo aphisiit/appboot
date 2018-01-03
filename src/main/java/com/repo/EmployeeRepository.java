@@ -21,7 +21,7 @@ public interface EmployeeRepository extends JpaSpecificationExecutor<Employee>,
 
 //    Employee findByFirstName(@Param("firstName") String firstName);
     @CrossOrigin("*")
-    Employee findByFirstNameIgnoreCaseContainingAndLastNameIgnoreCaseContaining(
+    List<Employee> findByFirstNameIgnoreCaseContainingAndLastNameIgnoreCaseContainingOrderByFirstName(
             @Param("firstName") String firstName,
             @Param("lastName") String lastName);
 
