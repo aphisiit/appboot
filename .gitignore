@@ -1,4 +1,5 @@
 target/
+nginx/ssl/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
